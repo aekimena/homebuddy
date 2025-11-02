@@ -9,10 +9,12 @@ import { colors } from "../constants/colors";
 import { globalStyles } from "../constants/styles";
 import Feather from "@expo/vector-icons/Feather";
 import Wishlist from "../screens/tabs/Wishlist";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Tab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
+  const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -20,7 +22,13 @@ const TabsNavigator = () => {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.iconSecondary,
         tabBarLabelStyle: { ...globalStyles.font12Medium, fontSize: 10.5 },
-        tabBarStyle: { borderTopWidth: 0, elevation: 0 },
+        tabBarStyle: {
+          borderTopWidth: 0,
+          elevation: 0,
+
+          height: insets.bottom + 70,
+          paddingTop: 5,
+        },
       }}
     >
       <Tab.Screen

@@ -16,10 +16,19 @@ import { LabelText } from "../LabelText";
 import { Vspacer } from "../Vspacer";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Fontisto from "@expo/vector-icons/Fontisto";
+import { useNavigation } from "@react-navigation/native";
+import { screenNames } from "../../navigation/routes";
 
 export const RecommendationsItem = ({ item }: { item: ListingProp }) => {
+  const navigation = useNavigation();
   return (
-    <View
+    <Pressable
+      onPress={() =>
+        navigation.navigate(screenNames.screens, {
+          screen: screenNames.listingDetails,
+          params: { id: "123" },
+        })
+      }
       style={{
         width: screenWidth * 0.55,
         padding: 15,
@@ -100,7 +109,7 @@ export const RecommendationsItem = ({ item }: { item: ListingProp }) => {
           </Pressable>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

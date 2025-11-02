@@ -9,10 +9,19 @@ import { Vspacer } from "../Vspacer";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useNavigation } from "@react-navigation/native";
+import { screenNames } from "../../navigation/routes";
 
 export const WishlistItem = ({ item }: { item: ListingProp }) => {
+  const navigation = useNavigation();
   return (
     <Pressable
+      onPress={() =>
+        navigation.navigate(screenNames.screens, {
+          screen: screenNames.listingDetails,
+          params: { id: "123" },
+        })
+      }
       style={{
         padding: 15,
         borderRadius: 10,

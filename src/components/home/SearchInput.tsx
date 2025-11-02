@@ -7,8 +7,10 @@ import Octicons from "@expo/vector-icons/Octicons";
 
 export const SearchInput = ({
   onPressFilter,
+  disabled,
 }: {
   onPressFilter: () => void;
+  disabled?: boolean;
 }) => {
   return (
     <View style={{}}>
@@ -23,6 +25,7 @@ export const SearchInput = ({
           }}
           placeholder="Search"
           placeholderTextColor={colors.textSecondary}
+          editable={!disabled}
         />
         <Pressable onPress={onPressFilter}>
           <Octicons name="sliders" size={20} color={colors.iconSecondary} />

@@ -89,7 +89,7 @@ const ListingDetails = () => {
               </View>
             </View>
             <Vspacer size={10} />
-            <View style={{ gap: 5 }}>
+            <View style={{ gap: 10 }}>
               <LabelText
                 title={data.title}
                 style={{ ...globalStyles.font18SemiBold }}

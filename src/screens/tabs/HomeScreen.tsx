@@ -1,5 +1,5 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ScreenLayout } from "../../components/layout/ScreenLayout";
 import { Header } from "../../components/home/Header";
 import { SearchInput } from "../../components/home/SearchInput";
@@ -14,12 +14,19 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { LocationSheet } from "../../sheetModals/LocationSheet";
 import { useDispatch } from "react-redux";
 import { setLocation } from "../../storeServices/location/actions";
+import DisclaimerModal from "../../modals/DisclaimerModal";
+import { useNavigation } from "@react-navigation/native";
+import { screenNames } from "../../navigation/routes";
 
 const HomeScreen = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
+  const [isModalVisible, setModalVisible] = useState(false);
+
   const locationSheetRef = useRef<BottomSheetModal>(null);
   const dispatch = useDispatch();
+
+  const navigation = useNavigation();
 
   const onPressCategory = (str: string) => {
     // make api call here
@@ -31,6 +38,10 @@ const HomeScreen = () => {
     dispatch(setLocation(loc));
     locationSheetRef.current?.dismiss();
   };
+
+  useEffect(() => {
+    setModalVisible(true);
+  }, []);
   return (
     <ScreenLayout>
       <View style={{ flex: 1 }}>
@@ -38,9 +49,12 @@ const HomeScreen = () => {
           {/* <Vspacer size={10} /> */}
           <Header onPressLocation={() => locationSheetRef.current?.present()} />
           <Vspacer size={10} />
-          <View style={{ paddingHorizontal: 20 }}>
-            <SearchInput />
-          </View>
+          <Pressable
+            style={{ paddingHorizontal: 20 }}
+            onPress={() => navigation.navigate(screenNames.search)}
+          >
+            <SearchInput disabled onPressFilter={() => {}} />
+          </Pressable>
           <Vspacer size={10} />
 
           <View>
@@ -117,6 +131,10 @@ const HomeScreen = () => {
           onSelectLocation={(v) => {
             setNewLocation({ state: v.state, country: "Nigeria" });
           }}
+        />
+        <DisclaimerModal
+          visible={isModalVisible}
+          onClose={() => setModalVisible(false)}
         />
       </View>
     </ScreenLayout>

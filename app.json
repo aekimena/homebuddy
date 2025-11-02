@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/homebuddy_logo.png",
         "backgroundColor": "#5e17eb"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.homebuddy.android"
     },
     "web": {
       "favicon": "./assets/favicon.png"

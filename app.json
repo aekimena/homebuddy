@@ -21,7 +21,12 @@
         "backgroundColor": "#5e17eb"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.homebuddy.android"
+      "package": "com.homebuddy.android",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyC4ycP0wI5TTwt2M__________________s"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

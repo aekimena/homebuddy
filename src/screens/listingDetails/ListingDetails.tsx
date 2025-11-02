@@ -22,11 +22,13 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Feather from "@expo/vector-icons/Feather";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { useNavigation } from "@react-navigation/native";
 
 const ListingDetails = () => {
   const data = recommendations[0]; // dummy
 
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
 
   const moreImages = [
     "https://www.goldcoastprivateapartments.com.au/wp-content/uploads/2023/05/Modern-3-Bedroom-Apartment-jpg-1020x680.webp",
@@ -49,7 +51,10 @@ const ListingDetails = () => {
               style={{ width: "100%", height: "100%" }}
             />
             <View style={styles.header}>
-              <Pressable style={styles.headerIconContainer}>
+              <Pressable
+                style={styles.headerIconContainer}
+                onPress={() => navigation.goBack()}
+              >
                 <Entypo name="chevron-thin-left" size={16} color={"#fff"} />
               </Pressable>
               <Pressable style={styles.headerIconContainer}>
@@ -184,7 +189,7 @@ const ListingDetails = () => {
           </View>
           <Vspacer size={50} />
         </ScrollView>
-        <View style={{ ...styles.footer, paddingBottom: insets.bottom }}>
+        <View style={{ ...styles.footer, paddingBottom: insets.bottom + 15 }}>
           <View style={{ flex: 2 }}>
             <LabelText
               title="Price"

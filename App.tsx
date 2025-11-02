@@ -9,6 +9,9 @@ import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Provider } from "react-redux";
 import store from "./src/store/configureStore";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +28,7 @@ export default function App() {
       <SafeAreaProvider>
         <GestureHandlerRootView>
           <BottomSheetModalProvider>
-            <NavigationContainer>
+            <NavigationContainer onReady={() => SplashScreen.hide()}>
               <RootNavigator />
             </NavigationContainer>
           </BottomSheetModalProvider>

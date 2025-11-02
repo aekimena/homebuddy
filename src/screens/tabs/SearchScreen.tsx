@@ -14,7 +14,7 @@ import BottomSheet, {
 } from "@gorhom/bottom-sheet";
 import { recommendations } from "../../constants/data";
 import { ListingItem } from "../../components/home/ListingItem";
-import MapView from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLocation } from "../../storeServices/location/locationReducer";
 import { setLocation } from "../../storeServices/location/actions";
@@ -43,6 +43,7 @@ const SearchScreen = () => {
           }}
         >
           <MapView
+            provider={PROVIDER_GOOGLE}
             style={{ height: "100%", width: "100%" }}
             initialRegion={{
               latitude: 37.78825,

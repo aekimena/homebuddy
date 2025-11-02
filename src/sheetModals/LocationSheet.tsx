@@ -73,17 +73,26 @@ export const LocationSheet = forwardRef(
         >
           {/* --- Page 1: States --- */}
           <Animated.View style={[styles.page, statePageStyle]}>
-            <Text
+            <View
               style={{
-                ...globalStyles.font20Semibold,
-                color: colors.black,
+                paddingBottom: 15,
+                borderBottomWidth: 0.5,
+                borderColor: colors.border,
               }}
             >
-              Select State
-            </Text>
+              <Text
+                style={{
+                  ...globalStyles.font20Semibold,
+                  color: colors.black,
+                }}
+              >
+                Select State
+              </Text>
+            </View>
             <BottomSheetFlatList
               data={locations}
               keyExtractor={(item) => item.state}
+              contentContainerStyle={{ paddingBottom: 50 }}
               renderItem={({ item }) => (
                 <Pressable
                   style={styles.stateItem}

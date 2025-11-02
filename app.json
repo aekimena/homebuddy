@@ -1,29 +1,48 @@
 {
   "expo": {
-    "name": "homebuddy",
+    "name": "Homebuddy",
     "slug": "homebuddy",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/homebuddy_logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/homebuddy_logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5e17eb"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/homebuddy_logo.png",
+        "backgroundColor": "#5e17eb"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./src/assets/fonts/OpenSans-Bold.ttf",
+            "src/assets/fonts/OpenSans-Light.ttf",
+            "src/assets/fonts/OpenSans-Medium.ttf",
+            "src/assets/fonts/OpenSans-SemiBold.ttf"
+          ]
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "af7338c1-df7d-46e3-a72e-235f837ff90f"
+      }
+    },
+    "owner": "arinzemmanuel"
   }
 }
